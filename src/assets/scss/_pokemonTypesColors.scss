@@ -1,0 +1,22 @@
+$colors: (
+    "black": #18181b,
+    "blue": #bfdbfe,
+    "brown": #fed7aa,
+    "gray": #71717a,
+    "green": #bbf7d0,
+    "pink": #fbcfe8,
+    "purple": #e9d5ff,
+    "red": #fecaca,
+    "white": #f9fafb,
+    "yellow": #fef08a,
+);
+
+@mixin gen-props($prefix, $property) {
+    @each $color-name, $color in $colors {
+        .#{$prefix}-#{$color-name} {
+            #{$property}: $color;
+        }
+    }
+}
+
+@include gen-props("bg", "background-color");
